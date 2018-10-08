@@ -1,0 +1,14 @@
+﻿ENG§
+Smart menu
+Use described key to select option. Press key 0 to exit
+Press: 1 to do this;DoThis
+Press: 2 to do that;DoThat
+Press: 3 to do someting;DoSomething
+Press: 4 to get the answher;GetTheAnswerToLifeTheUniverseAndEverything
+DK§
+Smart menu
+Brug den beskrevet knap til at vælge dit menupunkt. Tryk på 0 for at lukke
+Tryk: 1 for at gøre det her;DoThis
+Tryk: 2 for at gøre det;DoThat
+Tryk: 3 for at gøre noget;DoSomething
+Tryk: 4 for at finde svaret;GetTheAnswerToLifeTheUniverseAndEverything
