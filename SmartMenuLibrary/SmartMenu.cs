@@ -14,9 +14,9 @@ namespace SmartMenuLibrary
 		private Dictionary<string, string> menuForLanguages = new Dictionary<string, string>();
 		private Dictionary<string, Dictionary<char, string>> menuActionForLanguages = new Dictionary<string, Dictionary<char, string>>();
 
-		public void LoadMenu(StreamReader path)
+		public void LoadMenu(string path)
 		{
-			string menuSpec = path.ReadToEnd();
+			string menuSpec = new StreamReader(new FileStream($"../../{path}", FileMode.Open)).ReadToEnd();
 			LoadLanguages(menuSpec);
 		}
 
