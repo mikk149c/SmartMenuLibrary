@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SmartMenuLibrary
 {
-	interface iBinding
+	public interface iBinding
 	{
 		void Call(string id);
 	}
