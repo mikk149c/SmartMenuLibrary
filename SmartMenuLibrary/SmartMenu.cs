@@ -13,9 +13,11 @@ namespace SmartMenuLibrary
 		private Dictionary<char, string> languages = new Dictionary<char, string>();
 		private Dictionary<string, string> menuForLanguages = new Dictionary<string, string>();
 		private Dictionary<string, Dictionary<char, string>> menuActionForLanguages = new Dictionary<string, Dictionary<char, string>>();
+		public IBinding Binding;
 
-		public void LoadMenu(string path)
+		public void LoadMenu(string path, IBinding Binding)
 		{
+			this.Binding = Binding;
 			string menuSpec = new StreamReader(new FileStream($"../../{path}", FileMode.Open)).ReadToEnd();
 			LoadLanguages(menuSpec);
 		}
@@ -100,7 +102,7 @@ namespace SmartMenuLibrary
 				if (menuSpecLines[i].Contains(';'))
 				{
 					//Finds the key needed to activate a menu point and the menuID that corresponds to it
-					menuActionForLanguage.Add(menuSpecLines[i].Split(' ')[1].ToLower()[0], menuSpecLines[i].Split(';')[1]);
+					menuActionForLanguage.Add(menuSpecLines[i].Split(' ')[1].ToLower()[0], menuSpecLines[i].Split(';')[1].Trim());
 				}
 			}
 
@@ -124,9 +126,7 @@ namespace SmartMenuLibrary
 					Display(menuForLanguages[currentLanguage]);
 					if ((menuID = GetValueInDictionaryFromUser(menuActionForLanguages[currentLanguage])) != null)
 					{
-						IBinding.Call(menuID);
-						Display($"\n{menuID}\n");
-						Console.ReadKey();
+						Binding.Call(menuID);
 					}
 				}
 			}
